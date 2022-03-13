@@ -59,11 +59,11 @@ test {
 }
 
 jar {
-  baseName = projectName
+  archiveBaseName = projectName
 }
 
 shadowJar {
-  baseName = projectName
+  archiveBaseName = projectName
 
   doLast {
     def commandString = "java -Djava.library.path=. -jar ${projectName}.jar --team ${team} ${nthostSwitch} --cameraurl \"${cameraURL}\""
