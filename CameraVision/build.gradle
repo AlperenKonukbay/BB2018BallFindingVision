@@ -59,11 +59,11 @@ test {
 }
 
 jar {
-  archiveBaseName = projectName
+  baseName = projectName
 }
 
 shadowJar {
-  archiveBaseName = projectName
+  baseName = projectName
 
   doLast {
     def commandString = "java -Djava.library.path=. -jar ${projectName}.jar --team ${team} ${nthostSwitch} --cameraurl \"${cameraURL}\""
@@ -87,7 +87,7 @@ shadowJar {
 
 distributions {
   main {
-    archiveBaseName = projectName
+    baseName = projectName
     contents {
       from (openCvUnzipLocation) {
         exclude 'META-INF'
@@ -99,7 +99,7 @@ distributions {
 }
 
 task zipOutput(type: Zip) {
-  archiveBaseName = "${projectName}-all"
+  baseName = "${projectName}-all"
   duplicatesStrategy = 'exclude'
   dependsOn shadowJar
   dependsOn unzipOpenCv
