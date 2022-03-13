@@ -87,7 +87,7 @@ shadowJar {
 
 distributions {
   main {
-    baseName = projectName
+    archiveBaseName = projectName
     contents {
       from (openCvUnzipLocation) {
         exclude 'META-INF'
@@ -99,7 +99,7 @@ distributions {
 }
 
 task zipOutput(type: Zip) {
-  baseName = "${projectName}-all"
+  archiveBaseName = "${projectName}-all"
   duplicatesStrategy = 'exclude'
   dependsOn shadowJar
   dependsOn unzipOpenCv
